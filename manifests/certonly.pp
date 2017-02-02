@@ -85,7 +85,7 @@ define letsencrypt::certonly (
     } else {
       $cron_cmd = $renewcommand
     }
-    $cron_hour = fqdn_rand(24, $title) # 0 - 23, seed is title plus fqdn
+    $cron_hour = fqdn_rand(4, $title) # 0 - 23, seed is title plus fqdn
     $cron_minute = fqdn_rand(60, $title ) # 0 - 59, seed is title plus fqdn
     cron { "letsencrypt renew cron ${title}":
       command     => $cron_cmd,
